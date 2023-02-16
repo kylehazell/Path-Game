@@ -21,15 +21,17 @@ public class CollideFlagCommand extends Command {
 	public void actionPerformed(ActionEvent event) {
 		Command ok = new Command("OK");
 		TextField flagChoice = new TextField();
+		//Prompts the user to enter number between 1 and 9
 		Dialog.show("Enter Number :  ", flagChoice, ok);
 		int  flagNum = Integer.parseInt(flagChoice.getText());
 		
-		
+		// This if statement checks to see the input is correct 
 		if (flagNum >= 1 && flagNum <= 9 ) {
 			gw.antHitFlag(flagNum);
 			gw.notifyObservers(gw.getCollection());
 		} 
 		else {
+			
 			System.out.println("Please Enter Valid Number from 1 to 9 : ");
 			boolean wrongResponse = true;
 			while(wrongResponse) {
